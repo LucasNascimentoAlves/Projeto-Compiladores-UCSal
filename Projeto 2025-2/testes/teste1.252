@@ -1,0 +1,111 @@
+program MeuProgramaPrincipal
+
+
+// SEÇÃO DE DECLARAÇÕES
+
+
+declarations
+
+integer x, y;
+real r;
+character c;
+string s;
+boolean b;
+
+/*
+   Comentário de bloco para testar:
+   if, else, while, break, print,
+   operadores e símbolos não devem gerar tokens aqui
+*/
+
+endDeclarations
+
+
+// SEÇÃO DE FUNÇÕES
+
+
+functions
+
+void MinhaFuncao(integer param1, real param2)
+    return
+endFunction
+
+endFunctions
+
+
+// PROGRAMA PRINCIPAL
+
+
+x := 10;
+y := 20;
+r := 2.5;
+c := 'A';
+s := "Teste completo do analisador lexico";
+b := true;
+
+if x < y
+    print s;
+else
+    print "Valor maior ou igual";
+endIf
+
+while x <= y
+    x := x + 1;
+    if x == 15
+        break;
+    endIf
+endWhile
+
+
+// TESTE DE OPERADORES E SÍMBOLOS
+
+
+x := x - 1;
+x := x * 2;
+x := x / 2;
+x := x % 2;
+
+if x != y
+    print "Diferente";
+endIf
+
+if x # y
+    print "Alias do diferente";
+endIf
+
+if x >= y
+    print "Maior ou igual";
+endIf
+
+if x > y
+    print "Maior";
+endIf
+
+if x <= y
+    print "Menor ou igual";
+endIf
+
+if x < y
+    print "Menor";
+endIf
+
+
+// TESTE DE PARÊNTESES, COLCHETES E CHAVES
+
+
+print ( x );
+print [ x ];
+print { x };
+
+
+// TESTE DOS DEMAIS SÍMBOLOS
+
+
+x : y;
+x ? y;
+
+
+// FINAL DO PROGRAMA
+
+
+endProgram
