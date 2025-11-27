@@ -1,6 +1,5 @@
 # ETAPA 7 – STATIC CHECKER – ANÁLISE LÉXICA  
 
----
 
 ## 1. IDENTIFICAÇÃO DA EQUIPE
 
@@ -165,6 +164,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
