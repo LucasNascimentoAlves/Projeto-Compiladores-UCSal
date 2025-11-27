@@ -63,51 +63,6 @@ Projeto2025-2/
 
 ## 5. COMO EXECUTAR NO INTELLIJ IDEA
 
-### 5.1 Abrir o projeto
-
-1. Abrir o **IntelliJ IDEA**
-2. Clicar em **Open**
-3. Selecionar a pasta raiz do projeto:  
-   `Projeto2025-2`
-
-
-### 5.2 Configurar o arquivo de entrada
-
-O analisador espera receber **apenas o nome base do arquivo**, sem a extensão `.252`.
-
-Exemplo de arquivo existente:
-
-testes/teste1.252
-
-O argumento passado será:
-  ```txt
-  testes/teste1
-  ```
-
-
-### 5.3 Configurar os argumentos no IntelliJ
-
-1. Clique em:
-Run → Edit Configurations
-2. Selecione a classe:
-main.Principal
-3. No campo:
-Program arguments
-Informe:
-testes/teste1
-
-4. Clique em **Apply** e depois em **OK**
-
-
-### 5.4 Executar o programa
-
-Basta clicar em **Run ▶** no IntelliJ.
-
-Ao final da execução, o sistema gerará automaticamente:
-testes/teste1.LEX
-testes/teste1.TAB
-
-
 ## 6. ARQUIVO `.LEX`
 
 O arquivo `.LEX` contém:
@@ -158,6 +113,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
