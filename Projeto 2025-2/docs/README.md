@@ -1,5 +1,4 @@
 # ETAPA 7 – STATIC CHECKER – ANÁLISE LÉXICA  
-Projeto Compiladores – UCSal  
 
 ---
 
@@ -166,6 +165,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
