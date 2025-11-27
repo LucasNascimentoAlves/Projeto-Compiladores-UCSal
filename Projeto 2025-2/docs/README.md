@@ -38,25 +38,26 @@ Todos os códigos dos átomos seguem o Apêndice A do documento do projeto.
 O projeto deve possuir a seguinte estrutura de diretórios:
 
 ```md
-## Estrutura do Projeto
-
-- Projeto2025-2/
-- src/
-  - main/
-    - Principal.java
-  - lexer/
-    - Lexer.java
-    - Token.java
-  - simbolos/
-    - EntradaSimbolo.java
-    - TabelaSimbolos.java
-  - reservadas/
-    - TabelaReservadas.java
-- testes/
-  - teste1.252
-- docs/
-  - README.md
-- bin/
+Projeto2025-2/
+├── src/
+│   ├── main/
+│   │   └── Principal.java
+│   ├── lexer/
+│   │   ├── Lexer.java
+│   │   └── Token.java
+│   ├── simbolos/
+│   │   ├── EntradaSimbolo.java
+│   │   └── TabelaSimbolos.java
+│   └── reservadas/
+│       └── TabelaReservadas.java
+│
+├── testes/
+│   └── teste1.252
+│
+├── docs/
+│   └── README.md
+│
+└── bin/
 ```
 
 
@@ -157,6 +158,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
