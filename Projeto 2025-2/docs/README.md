@@ -79,8 +79,9 @@ Exemplo de arquivo existente:
 
 testes/teste1.252
 
-
 O argumento passado será:
+
+testes/teste1
 
 
 ### 5.3 Configurar os argumentos no IntelliJ
@@ -156,6 +157,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
