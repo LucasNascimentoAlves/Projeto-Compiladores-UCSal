@@ -30,9 +30,9 @@ public class Lexer {
         proximoChar = reader.read();
     }
 
-    // ==============================
+
     // TRATAMENTO DE COMENTÁRIOS
-    // ==============================
+
     private void pularComentarioLinha() throws IOException {
         while (proximoChar != -1 && proximoChar != '\n') {
             avancar();
@@ -84,9 +84,9 @@ public class Lexer {
             return null;
         }
 
-        // =========================
+
         // IDENTIFICADORES / PRS
-        // =========================
+
         if (Character.isLetter(proximoChar)) {
             StringBuilder sb = new StringBuilder();
 
@@ -110,9 +110,9 @@ public class Lexer {
             }
         }
 
-        // =========================
+
         // NÚMEROS
-        // =========================
+
         if (Character.isDigit(proximoChar)) {
             StringBuilder sb = new StringBuilder();
             boolean isReal = false;
@@ -129,9 +129,9 @@ public class Lexer {
             return new Token(sb.toString(), codigo, linha, -1);
         }
 
-        // =========================
+
         // STRING
-        // =========================
+
         if (proximoChar == '"') {
             StringBuilder sb = new StringBuilder();
             sb.append((char) proximoChar);
@@ -150,9 +150,9 @@ public class Lexer {
             return new Token(sb.toString(), "IDN06", linha, -1);
         }
 
-        // =========================
+
         // CHAR
-        // =========================
+
         if (proximoChar == '\'') {
             StringBuilder sb = new StringBuilder();
             sb.append((char) proximoChar);
@@ -171,9 +171,9 @@ public class Lexer {
             return new Token(sb.toString(), "IDN07", linha, -1);
         }
 
-        // =========================
+
         // OPERADORES COMPOSTOS
-        // =========================
+
         if (proximoChar == ':' || proximoChar == '<' ||
                 proximoChar == '>' || proximoChar == '=' ||
                 proximoChar == '!') {
@@ -196,9 +196,9 @@ public class Lexer {
                     linha, -1);
         }
 
-        // =========================
+
         // SÍMBOLO SIMPLES
-        // =========================
+
         char atual = (char) proximoChar;
         avancar();
 
@@ -215,3 +215,4 @@ public class Lexer {
         reader.close();
     }
 }
+
