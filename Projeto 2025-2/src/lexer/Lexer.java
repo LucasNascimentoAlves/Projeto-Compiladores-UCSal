@@ -15,6 +15,8 @@ public class Lexer {
     private TabelaReservadas reservadas;
     private TabelaSimbolos tabelaSimbolos;
 
+    private static final int TAM_MAX = 35; 
+
     public Lexer(String caminhoArquivo, TabelaSimbolos tabelaSimbolos) throws IOException {
         reader = new BufferedReader(new FileReader(caminhoArquivo));
         linha = 1;
@@ -31,7 +33,8 @@ public class Lexer {
     }
 
 
-    // TRATAMENTO DE COMENTÁRIOS
+    // Comentários
+
 
     private void pularComentarioLinha() throws IOException {
         while (proximoChar != -1 && proximoChar != '\n') {
@@ -41,7 +44,6 @@ public class Lexer {
 
     private void pularComentarioBloco() throws IOException {
         avancar(); // após o *
-
         while (proximoChar != -1) {
             if (proximoChar == '*') {
                 avancar();
@@ -55,9 +57,13 @@ public class Lexer {
         }
     }
 
+
+    // Token
+
+
     public Token proximoToken() throws IOException {
 
-        // Ignorar espaços
+        // Ignora espaços em branco
         while (proximoChar != -1 && Character.isWhitespace(proximoChar)) {
             avancar();
         }
@@ -66,12 +72,12 @@ public class Lexer {
         if (proximoChar == '/') {
             avancar();
 
-            if (proximoChar == '/') { // comentário de linha
+            if (proximoChar == '/') {
                 pularComentarioLinha();
                 return proximoToken();
             }
 
-            if (proximoChar == '*') { // comentário de bloco
+            if (proximoChar == '*') {
                 pularComentarioBloco();
                 return proximoToken();
             }
@@ -85,18 +91,16 @@ public class Lexer {
         }
 
 
-        // IDENTIFICADORES / PRS
+        // Identifiers
 
         if (Character.isLetter(proximoChar)) {
             StringBuilder sb = new StringBuilder();
 
             while (proximoChar != -1 &&
-                    (Character.isLetterOrDigit(proximoChar) || proximoChar == '_')) {
+                   (Character.isLetterOrDigit(proximoChar) || proximoChar == '_')) {
 
-                sb.append((char) proximoChar);
+                sb.append((char) proximoChar); // NÃO TRUNCA AQUI
                 avancar();
-
-                if (sb.length() == 35) break;
             }
 
             String lexema = sb.toString();
@@ -104,14 +108,13 @@ public class Lexer {
             if (reservadas.isReservada(lexema)) {
                 return new Token(lexema, reservadas.getCodigo(lexema), linha, -1);
             } else {
-                String codigoIdentificador = "IDN02"; // variable por padrão
-                int indice = tabelaSimbolos.inserir(lexema, codigoIdentificador, linha);
-                return new Token(lexema, codigoIdentificador, linha, indice);
+                int indice = tabelaSimbolos.inserir(lexema, "IDN02", linha);
+                return new Token(lexema, "IDN02", linha, indice);
             }
         }
 
 
-        // NÚMEROS
+        // Números 
 
         if (Character.isDigit(proximoChar)) {
             StringBuilder sb = new StringBuilder();
@@ -121,29 +124,36 @@ public class Lexer {
                   (Character.isDigit(proximoChar) || proximoChar == '.')) {
 
                 if (proximoChar == '.') isReal = true;
-                sb.append((char) proximoChar);
+
+                if (sb.length() < TAM_MAX) {
+                    sb.append((char) proximoChar);
+                }
                 avancar();
             }
 
-            String codigo = isReal ? "IDN05" : "IDN04"; // realConst | intConst
+            String codigo = isReal ? "IDN05" : "IDN04";
             return new Token(sb.toString(), codigo, linha, -1);
         }
 
 
-        // STRING
+        // String
 
         if (proximoChar == '"') {
             StringBuilder sb = new StringBuilder();
-            sb.append((char) proximoChar);
+            sb.append('"');
             avancar();
 
             while (proximoChar != -1 && proximoChar != '"') {
-                sb.append((char) proximoChar);
+                if (sb.length() < TAM_MAX) {
+                    sb.append((char) proximoChar);
+                }
                 avancar();
             }
 
             if (proximoChar == '"') {
-                sb.append((char) proximoChar);
+                if (sb.length() < TAM_MAX) {
+                    sb.append('"');
+                }
                 avancar();
             }
 
@@ -151,11 +161,11 @@ public class Lexer {
         }
 
 
-        // CHAR
+        // Char
 
         if (proximoChar == '\'') {
             StringBuilder sb = new StringBuilder();
-            sb.append((char) proximoChar);
+            sb.append('\'');
             avancar();
 
             if (proximoChar != -1) {
@@ -164,7 +174,7 @@ public class Lexer {
             }
 
             if (proximoChar == '\'') {
-                sb.append((char) proximoChar);
+                sb.append('\'');
                 avancar();
             }
 
@@ -172,11 +182,11 @@ public class Lexer {
         }
 
 
-        // OPERADORES COMPOSTOS
+        // Operadores
 
         if (proximoChar == ':' || proximoChar == '<' ||
-                proximoChar == '>' || proximoChar == '=' ||
-                proximoChar == '!') {
+            proximoChar == '>' || proximoChar == '=' ||
+            proximoChar == '!') {
 
             char primeiro = (char) proximoChar;
             avancar();
@@ -197,7 +207,7 @@ public class Lexer {
         }
 
 
-        // SÍMBOLO SIMPLES
+        // Símbolos simples
 
         char atual = (char) proximoChar;
         avancar();
@@ -215,4 +225,3 @@ public class Lexer {
         reader.close();
     }
 }
-
