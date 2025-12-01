@@ -1,9 +1,6 @@
 program MeuProgramaPrincipal
 
 
-// SEÇÃO DE DECLARAÇÕES
-
-
 declarations
 
 integer x, y;
@@ -15,13 +12,10 @@ boolean b;
 /*
    Comentário de bloco para testar:
    if, else, while, break, print,
-   operadores e símbolos não devem gerar tokens aqui
+   operadores e símbolos não devem gerar tokens
 */
 
 endDeclarations
-
-
-// SEÇÃO DE FUNÇÕES
 
 
 functions
@@ -31,9 +25,6 @@ void MinhaFuncao(integer param1, real param2)
 endFunction
 
 endFunctions
-
-
-// PROGRAMA PRINCIPAL
 
 
 x := 10;
@@ -55,9 +46,6 @@ while x <= y
         break;
     endIf
 endWhile
-
-
-// TESTE DE OPERADORES E SÍMBOLOS
 
 
 x := x - 1;
@@ -90,22 +78,13 @@ if x < y
 endIf
 
 
-// TESTE DE PARÊNTESES, COLCHETES E CHAVES
-
-
 print ( x );
 print [ x ];
 print { x };
 
 
-// TESTE DOS DEMAIS SÍMBOLOS
-
-
 x : y;
 x ? y;
-
-
-// FINAL DO PROGRAMA
 
 
 endProgram
