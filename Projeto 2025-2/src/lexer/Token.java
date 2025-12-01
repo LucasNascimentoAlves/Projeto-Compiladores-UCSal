@@ -2,19 +2,15 @@ package lexer;
 
 public class Token {
 
-    // 1. Texto do token (lexema)
     private String lexema;
 
-    // 2. Código do átomo
     private String codigo;
 
-    // 3. Linha onde apareceu
     private int linha;
 
-    // 4. Índice na Tabela de Símbolos (-1 se não existir)
+    // (-1 se não existir)
     private int indiceTabela;
 
-    // Construtor: usado pelo Lexer para criar tokens
     public Token(String lexema, String codigo, int linha, int indiceTabela) {
         this.lexema = lexema;
         this.codigo = codigo;
