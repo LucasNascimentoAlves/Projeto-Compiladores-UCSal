@@ -60,10 +60,7 @@ Projeto2025-2/
 └── bin/
 ```
 
-
-## 5. COMO EXECUTAR NO INTELLIJ IDEA
-
-## 6. ARQUIVO `.LEX`
+## 5. ARQUIVO `.LEX`
 
 O arquivo `.LEX` contém:
 
@@ -77,7 +74,7 @@ Exemplo de linha:
 program | PRS14 | 1 | -1
 
 
-## 7. ARQUIVO `.TAB`
+## 6. ARQUIVO `.TAB`
 
 O arquivo `.TAB` contém a **Tabela de Símbolos**, incluindo:
 
@@ -90,7 +87,7 @@ O arquivo `.TAB` contém a **Tabela de Símbolos**, incluindo:
 - Lista das primeiras linhas onde o símbolo aparece
 
 
-## 8. TRATAMENTO DE COMENTÁRIOS
+## 7. TRATAMENTO DE COMENTÁRIOS
 
 O analisador ignora completamente:
 
@@ -113,6 +110,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
