@@ -27,8 +27,8 @@ Todos os códigos dos átomos seguem o Apêndice A do documento do projeto.
 
 ## 3. LINGUAGEM E FERRAMENTAS
 
-- **Linguagem:** Java  
-- **IDE de execução:** IntelliJ IDEA   
+- **Linguagem:** Java 21  
+- **IDE de execução:** Visual Studio Code  
 - **Sistema de arquivos:** Leitura e escrita de arquivos `.252`, `.LEX` e `.TAB`
 
 
@@ -110,6 +110,7 @@ Todos os códigos seguem o padrão:
 - SRSxx → Símbolos reservados
 
 - IDNxx → Identificadores e constantes
+
 
 
 
